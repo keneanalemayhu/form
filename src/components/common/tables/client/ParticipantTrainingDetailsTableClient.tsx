@@ -8,6 +8,7 @@ import { useParticipantTrainingDetailColumns } from "@/components/common/tables/
 import { AddDialog } from "@/components/common/dialogs/AddDialog";
 import { ParticipantTrainingDetailForm } from "@/components/common/forms/ParticipantTrainingDetailForm";
 import { useParticipantTable } from "@/hooks/tables/useParticipantTable";
+import { ParticipantTrainingDetail } from "@/types";
 
 export default function ParticipantTrainingDetailsTableClient() {
     const { data, addDetail, updateDetail, deleteDetail } = useParticipantTrainingDetailTable();
@@ -36,7 +37,12 @@ export default function ParticipantTrainingDetailsTableClient() {
                 />
                 <AddDialog title="Add Training Detail">
                     {(close) =>
-                        <ParticipantTrainingDetailForm participants={participants} onAdd={(d) => addDetail(d)} closeDialog={close} />}
+                        <ParticipantTrainingDetailForm
+                            participants={participants}
+                            onAdd={(d: Omit<ParticipantTrainingDetail, "detail_id" | "created_at" | "updated_at">) => addDetail(d)}
+                            closeDialog={close}
+                        />
+                    }
                 </AddDialog>
             </div>
             <div className="px-2 md:px-4">

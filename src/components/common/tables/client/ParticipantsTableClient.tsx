@@ -9,6 +9,7 @@ import { useParticipantColumns } from "@/components/common/tables/columns/partic
 import { AddDialog } from "@/components/common/dialogs/AddDialog";
 import { ParticipantForm } from "@/components/common/forms/ParticipantForm";
 import { useChurchTable } from "@/hooks/tables/useChurchTable";
+import { Participant } from "@/types";
 
 export default function ParticipantsTableClient() {
   const { data: participants, addParticipant, updateParticipant, deleteParticipant } = useParticipantTable();
@@ -34,7 +35,12 @@ export default function ParticipantsTableClient() {
           className="max-w-sm"
         />
         <AddDialog title="Add Participant">
-          {(close) => <ParticipantForm churches={churches} onAdd={(p) => addParticipant(p)} closeDialog={close} />}
+          {(close) => <ParticipantForm
+            churches={churches}
+            onAdd={(p: Omit<Participant, "participant_id" | "created_at" | "updated_at">) => addParticipant(p)}
+            closeDialog={close}
+          />
+          }
         </AddDialog>
       </div>
       <div className="px-2 md:px-4">

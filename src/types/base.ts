@@ -33,7 +33,11 @@ export interface ParticipantTrainingDetailBase {
   updated_at?: string;
 }
 
-export type FormBaseProps<T, Extras = unknown, Key extends keyof T = keyof T> = Extras & {
+export type FormBaseProps<
+  T,
+  Extras = unknown,
+  Key extends keyof T = never
+> = Extras & {
   onAdd?: (input: Omit<T, Key | "created_at" | "updated_at">) => void;
   closeDialog?: () => void;
   existing?: T;

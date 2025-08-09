@@ -32,7 +32,7 @@ export function ParticipantForm({ onAdd, closeDialog, existing, churches }: Prop
       ...(existing?.participant_id !== undefined && { participant_id: existing.participant_id }),
     };
 
-    onAdd?.(newParticipant as Omit<Participant, "participant_id" | "created_at" | "updated_at">);
+    onAdd?.(newParticipant as Omit<Participant, "id" | "created_at" | "updated_at">);
     closeDialog?.();
   };
 

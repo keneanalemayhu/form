@@ -42,7 +42,16 @@ form/
 │   │   └── index.ts
 │   │
 │   └── types/
-│       └── types.ts
+│       ├── tables/
+│       │   ├── church.ts
+│       │   ├── mediaSpecialty.ts
+│       │   ├── participant.ts
+│       │   ├── participantSkill.ts
+│       │   └── participantTrainingDetail.ts
+│       ├── base.ts
+│       ├── enriched.ts
+│       ├── index.ts
+│       └── props.ts
 │
 ├── .gitignore
 ├── components.json

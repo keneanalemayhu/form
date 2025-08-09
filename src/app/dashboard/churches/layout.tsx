@@ -1,17 +1,14 @@
-// @/app/dashboard/paricipants/layout.tsx
+// @/app/dashboard/churches/layout.tsx
 
 import * as React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Churches | Bakery Management System",
-    description: "Login or register to access the Bakery Management System by JirehGroup.",
+  title: "Churches | Church Form System",
+  description:
+    "Manage churches and their participants efficiently with the Church Form System by JirehGroup.",
 };
 
-export default function ParicipantsLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <div>
-            {children}
-        </div>
-    );
+export default function ChurchesLayout({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>;
 }
